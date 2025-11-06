@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To the prettiest girl 💖</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Poppins:wght@300;400&display=swap');
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #fff0f5, #ffe4e1, #ffd6e8);
+    font-family: 'Poppins', sans-serif;
+    color: #b23a65;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em;
+    color: #d63384;
+    margin-top: 70px;
+    text-shadow: 0 0 15px rgba(255,182,193,0.7);
+    animation: fadeIn 2s ease;
+    word-spacing: 0.3em;
+  }
+
+  p.subtitle {
+    text-align: center;
+    font-size: 1.3em;
+    color: #e75480;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .button {
+    display: block;
+    margin: 50px auto;
+    padding: 14px 36px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(90deg, #ff8fa3, #ff69b4);
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(255,105,180,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,20,147,0.8);
+  }
+
+  .letter {
+    max-width: 500px;
+    margin: 40px auto 80px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,192,203,0.6);
+    font-family: 'Allura', cursive;
+    font-size: 1.7em;
+    color: #b23a65;
+    line-height: 1.8;
+    text-align: center;
+    animation: fadeIn 3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Heart styling */
+  .heart {
+    position: fixed;
+    bottom: 0; /* Start at the bottom */
+    width: 16px;
+    height: 16px;
+    background: pink;
+    transform: rotate(45deg);
+    pointer-events: none;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 6px rgba(255,105,180,0.7));
+    animation: floatUp linear forwards;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+  }
+
+  .heart::before { top: -50%; left: 0; }
+  .heart::after { top: 0; left: -50%; }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.6) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-500px) translateX(var(--x)) scale(1.2) rotate(45deg); opacity: 0; }
+  }
+
+  audio { display: none; }
+
+</style>
+</head>
+<body>
+
+<h1>To the LOML , Anaya 💕</h1>
+<p class="subtitle">You bring colours to my life ✨</p>
+
+<button class="button" onclick="burstHearts()">Click to feel my heart 💞</button>
+<audio id="bgMusic" src="https://cdn.pixabay.com/audio/2022/03/15/audio_7e37a6e5d0.mp3"></audio>
+
+<div class="letter">
+  <p>My love, 💖</p>
+  <p>
+    With you, every moment feels poetic.<br>
+    Every hour feels like a second.<br>
+    Every touch feels electric.<br>
+    Every glance feels so warm.<br>
+    Every instant is just perfect.
+  </p>
+  <p> 
+    I love you more, in every heartbeat and every breath. Love you till I die. 💞  
+  </p>
+  <p style="text-align: right;">— love, SF💌</p>
+</div>
+
+<script>
+function burstHearts() {
+  const music = document.getElementById('bgMusic');
+  music.play();
+
+  // Generate 100 hearts from the bottom of the page
+  for (let i = 0; i < 100; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    
+    // Random horizontal position
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+
+    // Random color
+    const colors = ['#ffb6c1', '#ff85a1', '#ff69b4', '#ff1493', '#ffc0cb'];
+    heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    // Random size
+    const size = 10 + Math.random() * 20;
+    heart.style.width = heart.style.height = size + 'px';
+
+    // Random horizontal drift
+    const x = (Math.random() - 0.5) * 400;
+    heart.style.setProperty('--x', x + 'px');
+
+    // Random animation duration
+    heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+
+    document.body.appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 6000);
+  }
+}
+</script>
+
+</body>
+</html>
